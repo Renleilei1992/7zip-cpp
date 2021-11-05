@@ -1,0 +1,3 @@
+[submodule "7z-lzma"]
+	path = 7z-lzma
+	url = https://github.com/Renleilei1992/7z-lzma1900-mirror.git

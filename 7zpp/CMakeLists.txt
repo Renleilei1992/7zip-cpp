@@ -2,7 +2,7 @@ set(PROJ_NAME lib-7zpp)
 
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 add_definitions(-D_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 14)
 aux_source_directory(. SOURCE_FILES)
 
 file(GLOB HEADER_FILES *.h)
@@ -18,9 +18,9 @@ add_library(${PROJ_NAME} STATIC
 )
 
 include_directories(
-	${CMAKE_SOURCE_DIR}/7z/C/
-	${CMAKE_SOURCE_DIR}/7z/CPP/
-	${CMAKE_SOURCE_DIR}/7z/CPP/7zip
+	${CMAKE_SOURCE_DIR}/7z-lzma/C/
+	${CMAKE_SOURCE_DIR}/7z-lzma/CPP/
+	${CMAKE_SOURCE_DIR}/7z-lzma/CPP/7zip
 )
 
 SET(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/${PROJECT_ARCH})

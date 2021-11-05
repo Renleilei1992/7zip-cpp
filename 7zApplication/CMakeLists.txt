@@ -1,6 +1,6 @@
 set(PROJ_NAME 7zApplication)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 14)
 aux_source_directory(. SOURCE_FILES)
 
 file(GLOB HEADER_FILES *.h)
