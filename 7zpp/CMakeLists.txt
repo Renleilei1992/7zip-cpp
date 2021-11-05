@@ -1,0 +1,32 @@
+set(PROJ_NAME lib-7zpp)
+
+add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+add_definitions(-D_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS)
+set(CMAKE_CXX_STANDARD 17)
+aux_source_directory(. SOURCE_FILES)
+
+file(GLOB HEADER_FILES *.h)
+file(GLOB RESOURCE_FILES *.rc)
+
+source_group("Header Files" FILES ${HEADER_FILES})
+source_group("Source Files" FILES ${SOURCE_FILES})
+source_group("Resource Files" FILES ${RESOURCE_FILES})
+
+add_library(${PROJ_NAME} STATIC
+	${SOURCE_FILES} 
+	${HEADER_FILES} 
+)
+
+include_directories(
+	${CMAKE_SOURCE_DIR}/7z/C/
+	${CMAKE_SOURCE_DIR}/7z/CPP/
+	${CMAKE_SOURCE_DIR}/7z/CPP/7zip
+)
+
+SET(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/${PROJECT_ARCH})
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${PROJECT_ARCH})
+
+set_target_properties(${PROJ_NAME} PROPERTIES 
+	INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}"
+	MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>"
+)

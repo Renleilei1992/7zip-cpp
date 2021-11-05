@@ -31,4 +31,6 @@ dll/
 *.log
 *.tlog
 build/*
+build_x86/*
+bin/*
 !build/.gitkeep
